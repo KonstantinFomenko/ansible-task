@@ -1,0 +1,24 @@
+---
+
+- name: HELLOE WORLD PLAY
+  hosts: localhost
+
+  tasks:
+    - name: Massage About Group
+      debug:
+        msg: "Hellow World"
+
+    - name: Shell Task
+      shell: "echo Hellow World!!!"
+
+- name: PLAY FACTS
+  hosts: managed_nodes
+
+  tasks:
+    - name: Debug Ansible Facts
+      debug:
+        msg:
+          - "OS {{ ansible_fqdn  }}  - {{ ansible_distribution  }}"
+          - "{{ ansible_fqdn  }} IPv4 info {{ ansible_default_ipv4  }}"
+          - "{{ ansible_fqdn  }} IPv6 info {{ ansible_default_ipv6  }}"
+          - "{{ ansible_fqdn  }} ansible interface info: {{ ansible_interfaces  }}"
